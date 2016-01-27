@@ -2,7 +2,7 @@ package repositories
 
 import com.amazonaws.services.dynamodbv2.document.Item
 import model.Section
-import play.api.libs.json.JsValue
+import play.api.Logger
 import services.Dynamo
 import scala.collection.JavaConversions._
 import java.util.concurrent.atomic.AtomicReference
@@ -47,13 +47,22 @@ object SectionLookupCache {
     }
   }
 
-  def insertSection(section: Section): Map[Long, Section] = {
-    val current = allSections.get
-    allSections.getAndSet(current + (section.id -> section))
+  def insertSection(section: Section): Unit = {
+    val currentSections = allSections.get
+    val newSections = currentSections + (section.id -> section)
+
+    if(!allSections.compareAndSet(currentSections, newSections)) {
+      Logger.warn("failed to update section cache")
+    }
+
   }
 
-  def removeSection(id: Long): Map[Long, Section] = {
-    val current = allSections.get
-    allSections.getAndSet(current - id)
+  def removeSection(id: Long): Unit = {
+    val currentSections = allSections.get
+    val newSections = currentSections - id
+
+    if(!allSections.compareAndSet(currentSections, newSections)) {
+      Logger.warn("failed to update section cache")
+    }
   }
 }
