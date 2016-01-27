@@ -49,8 +49,8 @@ class ClusterSynchronisation @Inject() (lifecycle: ApplicationLifecycle) {
       tagUpdateConsumer.start()
       tagCacheSynchroniser.set(Some(tagUpdateConsumer))
 
-      val sectionUpdateConsumer = new KinesisConsumer(Config().sectionUpdateStreamName,
-      s"section-cache-synchroniser-${ns.nodeId}", SectionSyncUpdateProcessor)
+       val sectionUpdateConsumer = new KinesisConsumer(Config().sectionUpdateStreamName,
+         s"section-cache-synchroniser-${ns.nodeId}", SectionSyncUpdateProcessor)
       Logger.info("stating section sync consumer")
       sectionUpdateConsumer.start()
       sectionCacheSynchroniser.set(Some(sectionUpdateConsumer))
