@@ -44,6 +44,7 @@ object HyperMediaApi extends Controller with PanDomainAuthActions {
   }
 
   def tag(id: Long) = CORSable(conf.corsableDomains: _*) {
+    Thread.sleep(5000)
     Action {
       TagRepository.getTag(id).map { tag =>
         Ok(Json.toJson(EntityResponse(TagEntity(tag))))
@@ -75,6 +76,8 @@ object HyperMediaApi extends Controller with PanDomainAuthActions {
       val tags = TagLookupCache.search(criteria).drop(offset).take(limit).map { tag =>
         EmbeddedEntity(HyperMediaHelpers.tagUri(tag.id), Some(TagEntity(tag)))
       }
+
+      Thread.sleep(5000)
 
       Ok(Json.toJson(CollectionResponse(offset, limit, Some(tags.size), tags)))
     }
