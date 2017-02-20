@@ -33,6 +33,8 @@ sealed trait Config {
 
   def pathManagerUrl: String = getRequiredStringProperty("pathmanager.url")
 
+  def gridUrl: String = getRequiredStringProperty("grid.url")
+
   def getRequiredStringProperty(key: String): String = {
     remoteConfiguration.getOrElse(key, {
       throw new IllegalArgumentException(s"Property '$key' not configured")
