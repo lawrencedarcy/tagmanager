@@ -2,9 +2,9 @@
 import React from 'react';
 import R from 'ramda';
 
-import TagImageEdit from '../TagImageEdit.react';
+import GridImageSelector from '../GridImageSelector.react';
 
-export default class ContributorInfoEdit extends React.Component {
+class ContributorInfoEdit extends React.Component {
 
   constructor(props) {
     super(props);
@@ -33,6 +33,7 @@ export default class ContributorInfoEdit extends React.Component {
   }
 
   updateBylineImage(image) {
+      console.log(image);
     this.props.updateTag(R.merge(this.props.tag, {
       contributorInformation: R.merge(this.props.tag.contributorInformation, {bylineImage: image})
     }));
@@ -76,17 +77,33 @@ export default class ContributorInfoEdit extends React.Component {
             onChange={this.updateContactEmail.bind(this)}
             disabled={!this.props.tagEditable}/>
         </div>
-        <TagImageEdit
-          tagImage={contributorInfomation.bylineImage}
-          label="Byline Image"
-          onChange={this.updateBylineImage.bind(this)}
-          tagEditable={this.props.tagEditable}/>
-        <TagImageEdit
-          tagImage={contributorInfomation.largeBylineImage}
-          label="Large Byline Image"
-          onChange={this.updateLargeBylineImage.bind(this)}
-          tagEditable={this.props.tagEditable}/>
+
+        <div className="tag-edit__field">
+          <label className="tag-edit__label">Byline Image</label>
+          <GridImageSelector
+            gridUrl={this.props.config.gridUrl}
+            onUpdateField={this.updateBylineImage.bind(this)}
+            fieldValue={contributorInfomation.bylineImage}
+            disabled={!this.props.tagEditable}/>
+        </div>
+        <div className="tag-edit__field">
+          <label className="tag-edit__label">Large Byline Image</label>
+          <GridImageSelector
+            gridUrl={this.props.config.gridUrl}
+            onUpdateField={this.updateLargeBylineImage.bind(this)}
+            fieldValue={contributorInfomation.largeBylineImage}
+            disabled={!this.props.tagEditable}/>
+        </div>
       </div>
     );
   }
 }
+
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+  return {
+    config: state.config
+  };
+}
+export default connect(mapStateToProps)(ContributorInfoEdit);

@@ -1,0 +1,31 @@
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: left;
+    cursor: default;
+
+    .modal__content {
+        position: absolute;
+        left: 30px;
+        top: 50px;
+        width: calc(100% - 60px);
+        height: calc(100% - 60px);
+    }
+
+    .modal__dismiss {
+        position: absolute;
+        right: -20px;
+        top: -40px;
+        cursor: pointer;
+
+        background-color: $c-grey-300;
+        color: $c-grey-700;
+        padding: 5px 10px;
+        border-radius: 3px;
+    }
+}

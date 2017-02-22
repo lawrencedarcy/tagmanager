@@ -55,7 +55,7 @@ case class UpdateTagCommand(denormalisedTag: DenormalisedTag) extends Command {
         }
       }
     }
-    
+
     KinesisStreams.tagUpdateStream.publishUpdate(tag.id.toString, TagEvent(EventType.Update, tag.id, Some(tag.asThrift)))
 
     existingTag foreach {(existing) =>
