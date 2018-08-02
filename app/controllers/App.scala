@@ -3,7 +3,7 @@ package controllers
 import model.ClientConfig
 import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
-import repositories.{TagSearchCriteria, TagRepository}
+import repositories.{TagSearchCriteria, TagRepository, ContentAPI}
 import play.api.Logger
 import services.Config
 import com.gu.tagmanagement.TagType
@@ -13,6 +13,7 @@ import play.api.libs.concurrent.Execution.Implicits._
 import scala.collection.mutable.ListBuffer
 
 object App extends Controller with PanDomainAuthActions {
+  private val temp = ContentAPI.signer
 
   def index(id: String = "") = AuthAction.async { req =>
 
