@@ -1,7 +1,7 @@
 package controllers
 
 import java.io.File
-import java.net.URI
+import java.net.{URI, URLEncoder}
 import java.util.UUID
 import java.util.concurrent.TimeUnit
 
@@ -51,7 +51,7 @@ object Support extends Controller with PanDomainAuthActions {
     validateImageDimensions(picture.file, requiredWidth, requiredHeight) match {
       case true => {
         val dateSlug = new DateTime().toString("dd/MMM/yyyy")
-        val logoPath = s"commercial/sponsor/${dateSlug}/${UUID.randomUUID}-${filename}"
+        val logoPath = s"commercial/sponsor/$dateSlug/${UUID.randomUUID}-${URLEncoder.encode(filename, "UTF-8")}"
         val contentType = req.contentType
         val objectMetadata = new ObjectMetadata()
         contentType.foreach(objectMetadata.setContentType(_))
