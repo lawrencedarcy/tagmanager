@@ -15,17 +15,30 @@ object CreateNewspaperBookSections extends App {
 
   println("--------------------------------------------------------------")
   println("--------------------------------------------------------------")
-  println("Creating week in review")
+  println("Creating G2 Film and G2 Music")
 
+  // FILM
   Await.result(CreateNewspaperBookSection(
-    internalName = "(DO NOT USE) Gdn: Week in Review (nbs)",
-    externalName = "Week in Review",
-    slug = "week-in-review",
-    preCalculatedPath = "theguardian/mainsection/week-in-review",
+    internalName = "Gdn: G2 Film (nbs)",
+    externalName = "Film",
+    slug = "film",
+    preCalculatedPath = "theguardian/g2/film",
 
-    parentNewspaperBook = 16600,
-    section = 205,
-    capiSectionId = Some("theguardian")
+    parentNewspaperBook = 16593,
+    section = 188,
+    capiSectionId = Some("film") // TODO
+  ).process, 10.seconds)
+
+  // MUSIC - DONE
+  Await.result(CreateNewspaperBookSection(
+    internalName = "Gdn: G2 Music (nbs)",
+    externalName = "Music",
+    slug = "music",
+    preCalculatedPath = "theguardian/g2/music",
+
+    parentNewspaperBook = 16593,
+    section = 201,
+    capiSectionId = Some("music")
   ).process, 10.seconds)
 
   println("--------------------------------------------------------------")

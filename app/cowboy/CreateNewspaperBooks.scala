@@ -13,28 +13,28 @@ object CreateNewspaperBooks extends App {
   implicit val username: Option[String] = Some("Sam Cutler")
 
   // Create newspaper books
-  Await.result(
-    CreateNewspaperBook(
-      internalName = "(DO NOT USE) Gdn: Journal G1 (nb)",
-      externalName = "Journal",
-      slug = "journal",
-      preCalculatedPath = "theguardian/journal",
+  //Await.result(
+  //  CreateNewspaperBook(
+  //    internalName = "(DO NOT USE) Gdn: Journal G1 (nb)",
+  //    externalName = "Journal",
+  //    slug = "journal",
+  //    preCalculatedPath = "theguardian/journal",
 
-      publication = 2,
-      section = 205,
-      capiSectionId = "theguardian"
-    ).process, 10.seconds)
+  //    publication = 2,
+  //    section = 205,
+  //    capiSectionId = "theguardian"
+  //  ).process, 10.seconds)
 
-  Await.result(
-    CreateNewspaperBook(
-      internalName = "(DO NOT USE) Gdn: Feast (nb)",
-      externalName = "Feast",
-      slug = "feast",
-      preCalculatedPath = "theguardian/feast",
+  //Await.result(
+  //  CreateNewspaperBook(
+  //    internalName = "(DO NOT USE) Gdn: Feast (nb)",
+  //    externalName = "Feast",
+  //    slug = "feast",
+  //    preCalculatedPath = "theguardian/feast",
 
-      publication = 2,
-      section = 196,
-      capiSectionId = "lifeandstyle"
-    ).process, 10.seconds)
+  //    publication = 2,
+  //    section = 196,
+  //    capiSectionId = "lifeandstyle"
+  //  ).process, 10.seconds)
 
 }
