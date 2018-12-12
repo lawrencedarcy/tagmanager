@@ -1,185 +1,177 @@
-
 $tag-edit-linked-field-height: $standard-padding * 4;
 $tag-edit-padding: $standard-padding/2;
 
 .tag-edit__input-group {
-  padding: $standard-padding * 1.5;
-  border-bottom: 1px solid $c-grey-300;
+    padding: $standard-padding * 1.5;
+    border-bottom: 1px solid $c-grey-300;
 
+    select {
+        margin-top: $tag-edit-padding;
+        width: 100%;
+    }
 
-  select {
-    margin-top: $tag-edit-padding;
-    width: 100%;
-  }
-
-  textarea {
-    width: 100%;
-    min-height: 50px;
-  }
+    textarea {
+        width: 100%;
+        min-height: 50px;
+    }
 }
 
 .tag-edit__input-group__header {
-  @extend %fs-data-4;
+    @extend %fs-data-4;
 
-  font-weight: bold;
+    font-weight: bold;
 
-  display: block;
-
+    display: block;
 }
 
 .tag-edit__input {
-  background-color: $c-white;
-  padding: $standard-padding;
-  border: 1px solid $c-grey-300;
-  width: 100%;
-  display: block;
+    background-color: $c-white;
+    padding: $standard-padding;
+    border: 1px solid $c-grey-300;
+    width: 100%;
+    display: block;
 }
 
 .tag-edit__input-block {
-  width: calc(50% - 5px);
+    width: calc(50% - 5px);
 }
 
 .tag-edit__visibility {
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
 
 %tag-edit__field {
-  position: relative;
-  margin: $standard-padding/2 0;
+    position: relative;
+    margin: $standard-padding/2 0;
 }
 
 .tag-edit__field {
-  @extend %tag-edit__field;
+    @extend %tag-edit__field;
 }
 
 .tag-edit__fields {
-  @extend %tag-edit__field;
-  display: flex;
-  justify-content: space-between;
+    @extend %tag-edit__field;
+    display: flex;
+    justify-content: space-between;
 }
 
 .tag-edit__field--logo {
-  @extend %tag-edit__field;
-  min-height: 60px;
+    @extend %tag-edit__field;
+    min-height: 60px;
 }
 
 .tag-edit__field__image {
-  display: inline-block;
-  width: 100px;
+    display: inline-block;
+    width: 100px;
 }
 
 .tag-edit__image__info {
-  @extend %fs-data-3;
+    @extend %fs-data-3;
 
-  max-width: calc(100% - 120px);
+    max-width: calc(100% - 120px);
 
+    display: inline-block;
+    vertical-align: top;
 
-  display: inline-block;
-  vertical-align: top;
-
-  margin-left: $standard-padding;
+    margin-left: $standard-padding;
 }
 
 .tag-edit__image__remove {
-  color: $c-red;
-  cursor: pointer;
+    color: $c-red;
+    cursor: pointer;
 }
 
 %tag-edit__image__add {
-  @extend %fs-data-3;
+    @extend %fs-data-3;
 
-  text-align: right;
+    text-align: right;
 
-  padding: 10px;
+    padding: 10px;
 }
 
 .tag-edit__image__add {
-  @extend %tag-edit__image__add;
+    @extend %tag-edit__image__add;
 }
 
 .tag-edit__image__add--error {
-  @extend %tag-edit__image__add;
-  color: $c-red;
+    @extend %tag-edit__image__add;
+    color: $c-red;
 }
 
 .tag-edit__image__add--success {
-  @extend %tag-edit__image__add;
-  color: $c-green;
+    @extend %tag-edit__image__add;
+    color: $c-green;
 
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .tag-edit__image__error {
-  margin-top: 5px;
+    margin-top: 5px;
 }
 
-.tag-edit__label, .tag-edit__label-inline {
-  @extend %fs-data-4;
+.tag-edit__label,
+.tag-edit__label-inline {
+    @extend %fs-data-4;
 
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .tag-edit__label-inline {
-  display: block;
+    display: block;
 }
 
 .tag-edit__linked-field {
+    display: flex;
 
-  display: flex;
+    height: $tag-edit-linked-field-height;
 
-  height: $tag-edit-linked-field-height;
+    > * {
+        vertical-align: top;
+    }
 
-  > * {
-    vertical-align: top;
-  }
+    label {
+        @extend %fs-data-3;
 
-  label {
-    @extend %fs-data-3;
+        font-weight: bold;
+        line-height: 30px;
 
-    font-weight: bold;
-    line-height: 30px;
+        flex: 0 0 105px;
 
-    flex: 0 0 105px;
+        border: 1px solid $c-grey-300;
 
-    border: 1px solid $c-grey-300;
-
-    padding: $tag-edit-padding;
-
-
-  }
+        padding: $tag-edit-padding;
+    }
 }
 
-
 %tag-edit__linked-field__link {
-  flex: 0 0 $tag-edit-linked-field-height;
+    flex: 0 0 $tag-edit-linked-field-height;
 
-  background-size: contain;
+    background-size: contain;
 }
 
 .tag-edit__linked-field__link {
-  @extend %tag-edit__linked-field__link;
+    @extend %tag-edit__linked-field__link;
 }
 
 .tag-edit__linked-field__link--corner {
-  @extend %tag-edit__linked-field__link;
+    @extend %tag-edit__linked-field__link;
 
-  background-image: url('/assets/images/connector-corner.svg');
+    background-image: url("/assets/images/connector-corner.svg");
 }
 
 .tag-edit__linked-field__link--line {
-  @extend %tag-edit__linked-field__link;
+    @extend %tag-edit__linked-field__link;
 
-  background-image: url('/assets/images/connector-line.svg');
+    background-image: url("/assets/images/connector-line.svg");
 }
 
 .tag-edit__linked-field__link--junction {
-  @extend %tag-edit__linked-field__link;
+    @extend %tag-edit__linked-field__link;
 
-  background-image: url('/assets/images/connector-junction.svg');
+    background-image: url("/assets/images/connector-junction.svg");
 }
-
 
 %tag-edit__linked-field__lock {
     flex: 0 0 $tag-edit-linked-field-height;
@@ -188,93 +180,90 @@ $tag-edit-padding: $standard-padding/2;
     background-position: center;
 
     border: 1px solid $c-grey-300;
-
 }
 
-.tag-edit__linked-field__lock ,
-.tag-edit__linked-field__lock--unlocked{
-  @extend %tag-edit__linked-field__lock;
-  background-image: url('/assets/images/chain-connected.png');
+.tag-edit__linked-field__lock,
+.tag-edit__linked-field__lock--unlocked {
+    @extend %tag-edit__linked-field__lock;
+    background-image: url("/assets/images/chain-connected.png");
 }
 
 .tag-edit__linked-field__lock--unlocked {
-  background-image: url('/assets/images/chain-disconnected.png');
-
+    background-image: url("/assets/images/chain-disconnected.png");
 }
 
 .tag-edit__linked-field__input-container {
-  flex: 1 1;
+    flex: 1 1;
 
-  display: flex;
+    display: flex;
 
+    input {
+        flex-grow: 1;
+        width: 100%;
+        height: $tag-edit-linked-field-height;
+    }
 
-  input {
+    span {
+        @extend %fs-data-3;
 
-    flex-grow: 1;
-    width: 100%;
-    height: $tag-edit-linked-field-height;
-  }
+        display: inline-block;
+        line-height: $tag-edit-linked-field-height - 2px;
+        padding-left: $tag-edit-padding;
+        border: 1px solid $c-grey-300;
+        white-space: nowrap;
 
-  span {
-    @extend %fs-data-3;
-
-    display: inline-block;
-    line-height: $tag-edit-linked-field-height - 2px;
-    padding-left: $tag-edit-padding;
-    border: 1px solid $c-grey-300;
-    white-space: nowrap;
-
-    flex-grow: 2;
-
-  }
+        flex-grow: 2;
+    }
 }
 
-
 .tag-edit__richtext {
+    @extend %fs-data-3;
 
-  @extend %fs-data-3;
+    margin-top: $standard-padding/2;
 
-  margin-top: $standard-padding/2;
-
-  background-color: white;
-  border: 1px solid $c-grey-300;
+    background-color: white;
+    border: 1px solid $c-grey-300;
 }
 
 .tag-edit__richtext__toolbar {
-  position: relative;
+    position: relative;
 
-  background-color: $c-grey-100;
-  border-bottom: 1px solid $c-grey-300;
-
+    background-color: $c-grey-100;
+    border-bottom: 1px solid $c-grey-300;
 }
 
 .tag-edit__richtext__toolbar__item {
-  display: inline-block;
+    display: inline-block;
 
-  cursor: pointer;
-  padding: $standard-padding/2 $standard-padding;
+    cursor: pointer;
+    padding: $standard-padding/2 $standard-padding;
 
-  border-right: 1px solid $c-grey-300;
+    border-right: 1px solid $c-grey-300;
 }
 
 .tag-edit__richtext__editor {
-  padding: $standard-padding;
+    padding: $standard-padding;
 
-  b {
-    font-weight: bold;
-  }
+    b {
+        font-weight: bold;
+    }
 
-  i {
-    font-style: italic;
-  }
+    i {
+        font-style: italic;
+    }
 
-  a {
-    color: $c-blue-link;
-    text-decoration: underline;
-  }
+    a {
+        color: $c-blue-link;
+        text-decoration: underline;
+    }
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
+}
 
+.tag-edit__profile-guidelines {
+    font-size: 0.75rem;
+    margin-top: 6px;
+    margin-left: 3px;
 }
