@@ -12,29 +12,23 @@ object CreateNewspaperBooks extends App {
   // User for auditing (which doesnt seem to work for some reason lmao)
   implicit val username: Option[String] = Some("Sam Cutler")
 
+  println("--------------------------------------------------------------")
+  println("--------------------------------------------------------------")
+  println("Creating Observer Design NB")
+
   // Create newspaper books
-  //Await.result(
-  //  CreateNewspaperBook(
-  //    internalName = "(DO NOT USE) Gdn: Journal G1 (nb)",
-  //    externalName = "Journal",
-  //    slug = "journal",
-  //    preCalculatedPath = "theguardian/journal",
+  Await.result(
+    CreateNewspaperBook(
+      internalName = "Obs: Design Magazine (nb)",
+      externalName = "Observer Design",
+      slug = "design",
+      preCalculatedPath = "theobserver/design",
 
-  //    publication = 2,
-  //    section = 205,
-  //    capiSectionId = "theguardian"
-  //  ).process, 10.seconds)
+      publication = 8,
+      section = 196,
+      capiSectionId = "lifeandstyle"
+    ).process, 10.seconds)
 
-  //Await.result(
-  //  CreateNewspaperBook(
-  //    internalName = "(DO NOT USE) Gdn: Feast (nb)",
-  //    externalName = "Feast",
-  //    slug = "feast",
-  //    preCalculatedPath = "theguardian/feast",
-
-  //    publication = 2,
-  //    section = 196,
-  //    capiSectionId = "lifeandstyle"
-  //  ).process, 10.seconds)
-
+  println("--------------------------------------------------------------")
+  println("--------------------------------------------------------------")
 }
